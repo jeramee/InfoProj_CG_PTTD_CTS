@@ -45,7 +45,7 @@ Thumbs.db
 *.cfg
 *.toml
 *.yaml
-*.yml
+# *.yml
 
 # Ignore compiled code files
 *.so

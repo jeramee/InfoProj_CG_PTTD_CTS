@@ -136,7 +136,7 @@ The CTSS models patient behavior (dropouts, compliance, etc.) and responses to t
 
     ```bash
     git clone <repository-url>
-    cd informatics_project
+    cd InfoProj_CG_PTTD_CTS
     conda create -n informatics_env python=3.8
     conda activate informatics_env
     ```
@@ -200,6 +200,31 @@ Researchers can modify trial parameters, statistical models, or analysis feature
     - Analyze histone modifications, chromatin domains, and gene expression for cancer studies.
 - **Personalized Medicine**:
     - Identify patient-specific biomarkers and therapy targets, tailoring treatments based on genomic profiles.
+
+### Alternate Setup for the Environment
+
+1. Clone the repository:
+    ```bash
+    git clone <repository-url>
+    cd informatics_project
+    ```
+
+2. Create the Conda environment using the `myenv.yml` file:
+    ```bash
+    conda env create -f myenv.yml
+    ```
+
+3. Activate the environment:
+    ```bash
+    conda activate myenv
+    ```
+
+4. Verify the installation:
+    ```bash
+    conda list
+    ```
+
+This setup ensures anyone cloning the repository can recreate the environment exactly as intended using the `myenv.yml` file.
 
 ### License
 
