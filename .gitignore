@@ -19,9 +19,14 @@ informatics_env/
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints
 
-# Ignore data files (you can adjust as needed)
+# Ignore data files except for specific file types
 data/*
-!data/README.md  # Include a README.md in the data folder if needed
+!data/**/*.xls
+!data/**/*.xlsx
+!data/**/*.txt
+
+# Allow .m files
+!**/*.m
 
 # Ignore output files
 *.log
@@ -46,11 +51,6 @@ Thumbs.db
 *.so
 *.dll
 *.dylib
-
-# Ignore Excel and large data files in the root or specific directories
-*.xls
-*.xlsx
-data/text_input/*.xls
 
 # Ignore virtual environments
 informatics_env/
