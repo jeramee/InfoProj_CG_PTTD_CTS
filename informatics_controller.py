@@ -70,7 +70,7 @@ class InformaticsController:
 
         # 3. Perform GSEA (Gene Set Enrichment Analysis)
         print("Running GSEA Analysis...")
-        expression_data = pd.read_csv("data/gene_expression.csv")
+        expression_data = pd.read_csv("data/fake_data/gene_expression.csv")
         perform_gsea(expression_data)
 
         # 4. Logistic Regression on Genomic Pathways
