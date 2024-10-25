@@ -12,8 +12,8 @@ def main():
 
     # Example: Running combined cheminformatics, bioinformatics, and machine learning analysis
     molecule = "Example Molecule"
-    fasta_file = "data/genome.fa"
-    ml_data = "data/genomic_features.csv"
+    fasta_file = "data/fake_data/genome.fa"
+    ml_data = "data/fake_data/genomic_features.csv"
 
     print("Running combined analysis...")
     results = controller.run_analysis(molecule, fasta_file, ml_data)

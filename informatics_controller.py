@@ -59,11 +59,11 @@ class InformaticsController:
 
         # 2. Genome and Cancer Analysis
         print("Running Genome and Cancer Analysis...")
-        load_chip_seq_data("data/chip_seq_peaks.csv")
-        process_genomic_sequences("data/genome.fa")
+        load_chip_seq_data("data/fake_data/chip_seq_peaks.csv")
+        process_genomic_sequences("data/fake_data/genome.fa")
 
-        X = pd.read_csv("data/genomic_features.csv")
-        y = pd.read_csv("data/cancer_outcomes.csv")
+        X = pd.read_csv("data/fake_data/genomic_features.csv")
+        y = pd.read_csv("data/fake_data/cancer_outcomes.csv")
         
         # Run Random Forest Classifier
         random_forest_classifier(X_train=X, y_train=y, X_test=X, y_test=y)
@@ -75,8 +75,8 @@ class InformaticsController:
 
         # 4. Logistic Regression on Genomic Pathways
         print("Running Logistic Regression Analysis...")
-        X = pd.read_csv("data/pathway_features.csv")
-        y = pd.read_csv("data/outcomes.csv")
+        X = pd.read_csv("data/fake_data/pathway_features.csv")
+        y = pd.read_csv("data/fake_data/outcomes.csv")
 
         # Ensure that both gene expression data and outcomes have the same sample sizes
         if expression_data.shape[0] == y.shape[0]:
