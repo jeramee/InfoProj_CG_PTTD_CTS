@@ -26,6 +26,33 @@ def main():
     # Run the full set of simulations and analyses
     print("\nRunning simulation tests...")
     controller.run_simulation_tests()
+    
+    # Fetch and display data from cBioPortal
+    print("\nFetching study data...")
+    controller.fetch_study_data()
+
+    print("\nFetching cancer types...")
+    controller.fetch_cancer_types()
+
+    # Replace "example_study_id" with a valid study ID
+    print("\nFetching clinical data for a specific study...")
+    controller.fetch_clinical_data("example_study_id")
+    
+    # Expression data handling
+    expression_file = "data/fake_data/data_RNA_Seq_v2_mRNA_median_all_sample_Zscores.txt"
+    expression_df = controller.load_expression_data(expression_file)
+    
+    # Generate and upload density plots for a specific gene
+    sample_id = "sample_01"
+    gene = "TP53"
+    plot_name = f"output/{gene}_density_plot.png"
+    controller.generate_expression_density_plot(expression_df, sample_id, gene, plot_name)
+    print(f"Density plot saved at {plot_name}")
+    
+    # Upload plots
+    content = {'kbMatches': [], 'expressionVariants': [{'key': gene, 'gene': gene}], 'ident': "example_report"}
+    controller.upload_density_plots(expression_df, sample_id, content)
+    print("Expression density plots uploaded.")
 
 if __name__ == "__main__":
     main()

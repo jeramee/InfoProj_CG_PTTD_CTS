@@ -254,7 +254,7 @@ Researchers can modify trial parameters, statistical models, or analysis feature
 
 1. Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/jeramee/InfoProj_CG_PTTD_CTS.git
     cd InfoProj_CG_PTTD_CTS
     ```
 

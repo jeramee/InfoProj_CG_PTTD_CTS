@@ -8,7 +8,23 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
 
+# Recommended Data Sources for ALK Targeted Therapy Prediction:
+# - Chemical Data Sources:
+#     - ChEMBL: Bioactivity data for ALK inhibitors.
+#     - ZINC Database: Structures for virtual screening.
+#     - PubChem: Assay data for ALK pathway evaluation.
+# - Genomic Data Sources:
+#     - TCGA and CCLE: ALK mutation and expression data, important for NSCLC.
+#     - GEO, GTEx: RNA-Seq data, for cancer vs. normal expression profiles.
+# - Integration Strategy:
+#     - Use target binding data from DrugBank and BindingDB.
+#     - Apply ADMET databases for compound safety profiles.
+
 def perform_gsea(expression_data):
+    # Perform Gene Set Enrichment Analysis
+    # Reference data sources for pathways: KEGG, Reactome
+    # (These pathways help map compensatory mechanisms and resistance pathways)
+    
     # Convert gene symbols to uppercase
     expression_data.index = expression_data.index.astype(str).str.upper()
 

@@ -3,6 +3,11 @@
 from modules.cheminformatics import Cheminformatics
 from modules.bioinformatics import Bioinformatics
 from modules.machine_learning import MachineLearning
+from modules.cbio_mod import (
+    getAllStudies,
+    getAllCancerTypes,
+    getAllClinicalDataInStudy
+)
 from simulation.ctss_simulation import run_simulations
 from simulation.genome_cancer_analysis import load_chip_seq_data, process_genomic_sequences, random_forest_classifier
 from simulation.informatics_analysis import perform_gsea, logistic_regression
@@ -10,6 +15,30 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 class InformaticsController:
+    """
+    Informatics Controller Class
+
+    Recommended Data Sources for ALK Targeted Therapy Prediction:
+    - **Chemical Data**:
+        - Compound Libraries: ChEMBL, ZINC Database, PubChem.
+        - Drug-Target Interaction Data: BindingDB, DrugBank.
+        - Pharmacokinetics and Toxicity Profiles: ADMET databases like ADMETlab.
+
+    - **Genomic Data**:
+        - ALK Mutation and Expression Data: TCGA, CCLE.
+        - RNA-Seq and Gene Expression: GEO, GTEx.
+        - Protein Interaction Data: STRING Database, Human Protein Atlas.
+        - ALK Fusions and Structural Variants: ICGC, COSMIC.
+        - Pathway Data: KEGG, Reactome.
+
+    Suggested Integration Strategy:
+    - Screen compounds against known ALK mutations and expression data.
+    - Assess drug efficacy by analyzing target binding affinities.
+    - Evaluate toxicity using ADMET profiles for favorable safety profiles.
+    - Incorporate mutation and expression data for patient-specific response predictions.
+    
+    This information supports machine learning and cheminformatics analyses in the project.
+    """
     def __init__(self):
         """
         Initializes the controller by creating instances of the relevant analysis modules.
@@ -17,6 +46,7 @@ class InformaticsController:
         self.cheminformatics = Cheminformatics()
         self.bioinformatics = Bioinformatics()
         self.ml = MachineLearning()
+        self.ipr_conn = IprConnection(username="user", password="pass", url="https://iprstaging-api.bcgsc.ca/api")  # Replace with real credentials
 
     def run_analysis(self, molecule, fasta_file, data):
         """
@@ -87,3 +117,27 @@ class InformaticsController:
                 print("Error: Train or test set has only one class, logistic regression cannot proceed.")
         else:
             print("Error: Gene expression data and outcomes have different sample sizes.")
+
+    # New method to fetch study information
+    def fetch_study_data(self):
+        studies = getAllStudies()
+        print("Available Studies:", studies)
+
+    # New method to fetch cancer types
+    def fetch_cancer_types(self):
+        cancer_types = getAllCancerTypes()
+        print("Cancer Types:", cancer_types)
+
+    # New method to fetch clinical data for a given study
+    def fetch_clinical_data(self, study_id):
+        clinical_data = getAllClinicalDataInStudy(study_id)
+        print(f"Clinical Data for Study {study_id}:", clinical_data)
+        
+    def load_expression_data(self, filename):
+        return load_zscore_data(filename)
+
+    def generate_expression_density_plot(self, expression_df, sample_id, gene, plot_name):
+        plot_expression_density(expression_df, sample_id, gene, plot_name)
+
+    def upload_density_plots(self, expression_df, sample_id, content):
+        upload_expression_density_plots(self.ipr_conn, expression_df, sample_id, content)
