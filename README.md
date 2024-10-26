@@ -4,6 +4,26 @@
 
 This project integrates bioinformatics, cheminformatics, and machine learning tools to support cancer genomics research, particularly focused on targeted therapy drug discovery and clinical trials for ALK-related cancers. While optimized for ALK, the system is adaptable to a broad range of cancer types. The core of the system includes gene expression analysis, epigenetic profiling, prediction of therapy-targeted genes, and the Clinical Trials Simulation System (CTSS), which models clinical trial designs to optimize statistical power and improve patient outcomes.
 
+## Key Features
+
+- **Gene Expression Analysis**: Identifies critical pathways by analyzing gene expression data.
+- **Epigenetic Profiling**: Examines histone modifications and chromatin structures to understand cancer progression.
+- **Therapy-Targeted Gene Prediction**: Uses machine learning to suggest compounds effective against specific genetic traits.
+- **Clinical Trials Simulation System (CTSS)**: Models clinical trials, optimizing sample size, patient compliance, and statistical analyses.
+
+## cbio_ml_pl: Machine Learning Pipeline for Targeted Therapy Prediction
+
+The `cbio_ml_pl` pipeline is a specialized machine learning component within this project. It is designed for targeted drug discovery and is optimized for ALK-driven cancers, though it can be adapted for other cancer types.
+
+- **Data Integration**: Combines bioinformatics and cheminformatics data, including mutation profiles, drug-target interactions, and pathway analyses.
+- **Predictive Modeling**: Uses AI to predict therapies suited to individual genetic profiles.
+- **Clinical Trial Optimization**: Simulates patient cohort selection and statistical methods for optimized trial outcomes.
+
+## Download Options
+
+- **Complete Project Download**: Includes `cbio_ml_pl`, data sources, and additional tools.
+- **Standalone Download of `cbio_ml_pl`**: Allows for independent use of the machine learning pipeline.
+
 ## Recommended Data Sources for ALK Targeted Therapy Prediction
 
 ### Chemical Data
