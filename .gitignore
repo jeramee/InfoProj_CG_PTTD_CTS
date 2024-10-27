@@ -20,10 +20,10 @@ informatics_env/
 .ipynb_checkpoints
 
 # Ignore data files except for specific file types
-# data/*
-# !data/**/*.xls
-# !data/**/*.xlsx
-# !data/**/*.txt
+data/*
+!data/**/*.xls
+!data/**/*.xlsx
+!data/**/*.txt
 
 # Allow .m files
 !**/*.m

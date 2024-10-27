@@ -11,7 +11,49 @@ This project integrates bioinformatics, cheminformatics, and machine learning to
 - **Therapy-Targeted Gene Prediction**: Uses machine learning to suggest compounds effective against specific genetic traits.
 - **Clinical Trials Simulation System (CTSS)**: Models clinical trials, optimizing sample size, patient compliance, and statistical analyses.
 
+# Pipeline Implementation Plan
+
+This README outlines a structured release plan for integrating key tools into the biochemistry and genomics pipeline. The pipeline will support both foundational and advanced analyses of biochemical, medication, genomic, and RNA-seq data. Scheduled releases focus on expanding functionality, with potential sockets selected to support specific pipeline needs.
+
+## Phase 1: Foundational Implementations (Release 1.0)
+
+### Biochemical and Medication Data
+- **RDKit**: RDKit's cheminformatics toolkit enables chemical structure analysis, virtual screening, and bioactivity prediction. Integrating RDKit with mutation-specific data from cBioPortal allows for comprehensive structure-activity relationship analysis and compound screening.
+  
+- **DeepChem**: DeepChem’s deep learning models assist in molecular property prediction and virtual screening, complementing mutation data from cBioPortal. This aids in identifying compounds with a high likelihood of efficacy against specific ALK mutations.
+
+### Genomic Data, RNA Analysis, and Mutation Profiling
+- **PyGEOparse**: PyGEOparse facilitates handling GEO gene expression data, providing insights into gene expression profiles associated with ALK mutations. It enables pathway and gene interaction analyses, complementing mutation data.
+
+- **pycbioportal**: This Python client for cBioPortal cancer mutation data enables targeted retrieval of ALK-specific mutation data across various cancers, critical for mutation-specific drug targeting.
+
+## Phase 1.5: Enhanced Genomic and Chemical Data Processing (Release 1.5)
+
+- **Biopython**: Biopython supports genomic sequence analysis and mutation mapping, enriching mutation-specific insights from cBioPortal by adding structural and functional data on ALK mutations.
+
+- **Open Babel**: Open Babel is an open-source chemical toolkit ideal for converting chemical file formats, preparing molecular data, and supporting machine learning readiness. This enables easier data manipulation for downstream modeling.
+
+## Phase 2.0: Advanced Bioactivity Prediction and Multi-Omics Integration (Release 2.0)
+
+- **PyBioMed**: PyBioMed offers modules for calculating molecular descriptors and fingerprints, supporting bioactivity prediction and structure-activity relationship (SAR) analysis. This refines screening for potential ALK inhibitors.
+
+- **Pybel**: As a Python wrapper for Open Babel, Pybel simplifies molecular structure manipulation, filtering, and bioactivity predictions. It aligns well with RDKit for cheminformatics workflows.
+
+- **Firebrowse/gdc-client**: These tools provide access to The Cancer Genome Atlas (TCGA) data in Python, adding mutation, expression, and clinical data to support ALK-targeted therapy research by incorporating broader genomic contexts across cancers.
+
+- **Scanpy**: While primarily designed for single-cell RNA-seq analysis, Scanpy also supports differential gene expression and pathway analysis. This is essential for identifying pathway alterations and potential therapeutic targets related to ALK.
+
+---
+
+This phased implementation plan enables progressive enhancement of pipeline capabilities, with Phase 1 focusing on foundational tools and subsequent phases introducing advanced data processing and bioinformatics insights.
+
+**We are working on phase 1 right here:**
+
 ## cbio_ml_pl: Machine Learning Pipeline for Targeted Therapy Prediction
+
+It's located here:
+
+https://github.com/jeramee/cbio_ml_pl
 
 The `cbio_ml_pl` pipeline is a specialized machine learning component within this project. It is designed for targeted drug discovery and is optimized for ALK-driven cancers, though it can be adapted for other cancer types.
 
