@@ -11,21 +11,35 @@ This project integrates bioinformatics, cheminformatics, and machine learning to
 - **Therapy-Targeted Gene Prediction**: Uses machine learning to suggest compounds effective against specific genetic traits.
 - **Clinical Trials Simulation System (CTSS)**: Models clinical trials, optimizing sample size, patient compliance, and statistical analyses.
 
-# Pipeline Implementation Plan
+## Pipeline Implementation Plan
 
 This README outlines a structured release plan for integrating key tools into the biochemistry and genomics pipeline. The pipeline will support both foundational and advanced analyses of biochemical, medication, genomic, and RNA-seq data. Scheduled releases focus on expanding functionality, with potential sockets selected to support specific pipeline needs.
 
 ## Phase 1: Foundational Implementations (Release 1.0)
 
 ### Biochemical and Medication Data
-- **RDKit**: RDKit's cheminformatics toolkit enables chemical structure analysis, virtual screening, and bioactivity prediction. Integrating RDKit with mutation-specific data from cBioPortal allows for comprehensive structure-activity relationship analysis and compound screening.
-  
+
 - **DeepChem**: DeepChem’s deep learning models assist in molecular property prediction and virtual screening, complementing mutation data from cBioPortal. This aids in identifying compounds with a high likelihood of efficacy against specific ALK mutations.
+  
+- **PyMOL and PyMOL API for Structural Biology**: PyMOL is a robust tool for visualizing and analyzing molecular structures, highly effective for studying protein mutations and their structural impacts in cancer. Through its Python API, PyMOL supports automated, mutation-specific structural analysis and visualizations, making it ideal for research on mutations in tumor suppressor and DNA repair proteins linked to cancer.
+
+- **RDKit**: RDKit's cheminformatics toolkit enables chemical structure analysis, virtual screening, and bioactivity prediction. Integrating RDKit with mutation-specific data from cBioPortal allows for comprehensive structure-activity relationship analysis and compound screening.
 
 ### Genomic Data, RNA Analysis, and Mutation Profiling
-- **PyGEOparse**: PyGEOparse facilitates handling GEO gene expression data, providing insights into gene expression profiles associated with ALK mutations. It enables pathway and gene interaction analyses, complementing mutation data.
+
+- **GDC Data Portal (Genomic Data Commons)**: GDC, managed by the NIH, offers comprehensive cancer genomics data, including mutation, expression, and epigenetic profiles. The GenomicDataCommons Python package allows seamless access to large datasets like TCGA, while gdctools support bulk data management, making it ideal for genetic and clinical cancer research.
 
 - **pycbioportal**: This Python client for cBioPortal cancer mutation data enables targeted retrieval of ALK-specific mutation data across various cancers, critical for mutation-specific drug targeting.
+
+- **PyGEOparse**: PyGEOparse facilitates handling GEO gene expression data, providing insights into gene expression profiles associated with ALK mutations. It enables pathway and gene interaction analyses, complementing mutation data.
+
+### R Integration Machine Learning Pipeline
+
+**DESeq2 RNA-Seq Analysis**:This pipeline performs RNA-Seq differential expression analysis with DESeq2 through rpy2, integrating smoothly into a broader data framework for cancer genomics. By bringing R’s DESeq2 directly into Python, the pipeline creates a unified environment that simplifies gene expression analysis for cancer research, especially mutation-specific studies like those involving ALK. This integration bridges Python’s data handling with R’s statistical power, offering an efficient tool for uncovering gene expression profiles tied to targeted cancer therapies.
+
+- **Data Handling**: Converts pandas DataFrames to R-compatible formats for easy data transfer.
+- **DESeq2 Analysis**: Performs differential expression analysis, pinpointing key genes and expression changes.
+- **Results**: Outputs a pandas DataFrame, prepared for ML, visualization, or further processing in bioinformatics workflows.
 
 ## Phase 1.5: Enhanced Genomic and Chemical Data Processing (Release 1.5)
 
