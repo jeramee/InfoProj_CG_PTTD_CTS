@@ -80,7 +80,7 @@ The `cbio_ml_pl` pipeline is a specialized machine learning component within thi
 - **Complete Project Download**: Includes `cbio_ml_pl`, data sources, and additional tools.
 - **Standalone Download of `cbio_ml_pl`**: Allows for independent use of the machine learning pipeline.
 
-## Recommended Data Sources for ALK Targeted Therapy Prediction
+## Recommended Data Sources for ALK Targeted Therapy Prediction (Phase 3 & 4)
 
 ### Chemical Data
 
@@ -127,8 +127,6 @@ Combining these datasets in a predictive model can enhance drug prediction accur
 4. **Incorporating Mutation and Expression Data** from TCGA and COSMIC for predictive modeling on patient responses.
 
 Together, these data sources create a solid foundation for machine learning and cheminformatics analyses aimed at identifying, ranking, and predicting the efficacy of ALK-targeted therapies. This integration also enables customization for specific mutations, fusion variants, and expression profiles found in ALK-related cancers.
-
-## Key Features
 
 ### 1. Clinical Trials Simulation System (CTSS)
 
@@ -188,6 +186,7 @@ Together, these data sources create a solid foundation for machine learning and 
     ├── main.py
     └── parse_test_input.py
 ```
+
 ## Research Context and Goals
 
 ### Histone Methylation & Chromatin Domains
@@ -227,52 +226,9 @@ conda create -n informatics_env python=3.8
 conda activate informatics_env
 ```
 
-## Research Context and Goals
+### Usage
 
-### Histone Methylation & Chromatin Domains
-
-This project focuses on the analysis of broad repressive chromatin domains (e.g., H3K27me3) that are critical in the regulation of oncogenes and tumor suppressor genes. These chromatin features provide insights into cancer progression and gene silencing mechanisms.
-
-### Cancer Genomics & Targeted Therapy
-
-The system integrates CRISPR-Cas9 screening, RNA-Seq, and pathway analysis to study the roles of long non-coding RNAs (lncRNAs) such as HOTAIR and SChLAP1. These lncRNAs are key regulators of chromatin structure and gene expression, driving cancer progression.
-
-### Clinical Trials Simulation
-
-The CTSS models patient behavior (dropouts, compliance, etc.) and responses to treatment in clinical trials. By simulating different trial configurations, researchers can optimize trial designs for drugs targeting specific cancer mutations, improving both efficacy and efficiency.
-
-## Installation and Setup
-
-### Prerequisites
-
-- **Python 3.8+**
-- **Required libraries:**
-
-  - Install with Conda (recommended):
-
-    ```bash
-    conda install pandas numpy scikit-learn gseapy matplotlib openpyxl xlrd
-    conda install -c conda-forge biopython lifelines
-    ```
-
-### Environment Setup
-
-1. Clone the repository and set up a Conda environment:
-
-    ```bash
-    git clone <repository-url>
-    cd InfoProj_CG_PTTD_CTS
-    conda create -n informatics_env python=3.8
-    conda activate informatics_env
-    ```
-
-2. Install the required dependencies:
-    ```bash
-    conda install pandas numpy scikit-learn gseapy matplotlib openpyxl xlrd
-    conda install -c conda-forge biopython lifelines
-    ```
-
-## Usage
+This script loads `.txt` and `.xls` files, prints their contents, and checks for supported file formats.
 
 ### Parsing Test Input Files
 
@@ -281,10 +237,6 @@ Run `parse_test_input.py` to parse gene, genomic, and clinical trial parameter f
 ```bash
 python parse_test_input.py
 ```
-
-### Usage
-
-This script loads `.txt` and `.xls` files, prints their contents, and checks for supported file formats.
 
 ### Running Analysis and Simulations
 
@@ -313,41 +265,45 @@ Researchers can modify trial parameters, statistical models, or analysis feature
 ### Troubleshooting
 
 - **Excel File Errors**:
-    - Ensure Excel files are not corrupted. The script uses `openpyxl` for `.xlsx` and `xlrd` for `.xls`. It attempts to load files as TSV if unsupported format errors occur.
+  - Ensure Excel files are not corrupted. The script uses `openpyxl` for `.xlsx` and `xlrd` for `.xls`. It attempts to load files as TSV if unsupported format errors occur.
 - **Missing Files**:
-    - Ensure that the required `.txt` and `.xls` files are placed in the `/data/text_input` directory.
+  - Ensure that the required `.txt` and `.xls` files are placed in the `/data/text_input` directory.
 
 ### Research Applications
 
 - **Pharmaceuticals**:
-    - Simulate trial designs for new drug treatments, optimizing cost and trial efficiency.
+  - Simulate trial designs for new drug treatments, optimizing cost and trial efficiency.
 - **Genome Analysis**:
-    - Analyze histone modifications, chromatin domains, and gene expression for cancer studies.
+  - Analyze histone modifications, chromatin domains, and gene expression for cancer studies.
 - **Personalized Medicine**:
-    - Identify patient-specific biomarkers and therapy targets, tailoring treatments based on genomic profiles.
+  - Identify patient-specific biomarkers and therapy targets, tailoring treatments based on genomic profiles.
 
 ### Alternate Setup for the Environment
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/jeramee/InfoProj_CG_PTTD_CTS.git
-    cd InfoProj_CG_PTTD_CTS
-    ```
+
+```bash
+git clone https://github.com/jeramee/InfoProj_CG_PTTD_CTS.git
+cd InfoProj_CG_PTTD_CTS
+```
 
 2. Create the Conda environment using the `myenv.yml` file:
-    ```bash
-    conda env create -f myenv.yml
-    ```
+
+```bash
+conda env create -f myenv.yml
+```
 
 3. Activate the environment:
-    ```bash
-    conda activate myenv
-    ```
+
+```bash
+conda activate myenv
+```
 
 4. Verify the installation:
-    ```bash
-    conda list
-    ```
+
+```bash
+conda list
+```
 
 This setup ensures anyone cloning the repository can recreate the environment exactly as intended using the `myenv.yml` file.
 
