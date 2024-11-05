@@ -164,27 +164,48 @@ Together, these data sources create a solid foundation for machine learning and 
 ## Directory Structure
 
 ```plaintext
-/informatics_project
-    ├── data/
-    │   └── text_input/
-    │       ├── control_genes.txt
-    │       ├── down_genes.txt
-    │       ├── up_genes.txt
-    │       ├── regionsToGenes.xls
-    │       ├── mm9.20150218.knownGene.xls
-    │       ├── up_genes.txt.regionsToGenes.xls.100.10.1000.cumulative.txt
-    ├── modules/
-    │   ├── bioinformatics.py
-    │   ├── cheminformatics.py
-    │   └── machine_learning.py
-    ├── simulation/
-    │   ├── ctss_simulation.py
-    │   ├── genome_cancer_analysis.py
-    │   ├── informatics_analysis.py
-    │   └── random_forest_classifier.py
-    ├── informatics_controller.py
-    ├── main.py
-    └── parse_test_input.py
+InfoProj_CG_PTTD_CTS/
+├── data/
+│   ├── raw/                # Unprocessed data
+│   ├── processed/          # Data after preprocessing
+│   ├── results/            # Analysis outputs
+│   └── text_input/
+│       ├── control_genes.txt
+│       ├── down_genes.txt
+│       ├── up_genes.txt
+│       ├── regionsToGenes.xls
+│       ├── mm9.20150218.knownGene.xls
+│       ├── up_genes.txt.regionsToGenes.xls.100.10.1000.cumulative.txt
+├── flow-forge/             # My from scratch pipelines are here for now.
+├── modules/
+│   ├── cbio_ml_pl/         # cBioPortal Machine Learning Pipeline (Mostly working, will move.)
+│   ├── r_int_ml_pl/        # R Integration Machine Learning Pipeline (Will move once working.)
+│   ├── GeneFuse/           # Gene Fusion Detection
+│   ├── RoseTTAFold2-PPI/   # Protein-Protein Interaction Screening
+│   ├── LigandMPNN/         # Ligand Design
+│   ├── alk-collateral-sensitivity/ # Collateral Sensitivity Analysis
+│   ├── bioinformatics.py
+│   ├── cheminformatics.py
+│   ├── machine_learning.py
+│   └── shared/             # Shared scripts and utilities
+├── simulation/
+│   ├── ctss_simulation.py
+│   ├── genome_cancer_analysis.py
+│   ├── informatics_analysis.py
+│   └── random_forest_classifier.py
+├── workflows/
+│   ├── preprocessing/      # Data preprocessing workflows
+│   ├── analysis/           # Data analysis workflows
+│   └── postprocessing/     # Post-analysis workflows
+├── docs/                   # Documentation
+├── tests/                  # Testing scripts
+├── config/                 # Configuration files
+├── scripts/                # Utility scripts
+├── informatics_controller.py
+├── main.py
+├── parse_test_input.py
+├── LICENSE                 # License information
+└── README.md               # Project overview
 ```
 
 ## Research Context and Goals
